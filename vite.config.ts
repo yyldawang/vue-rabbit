@@ -18,7 +18,7 @@ export default defineConfig({
       resolvers: [ElementPlusResolver()],
     }),
     Components({
-      resolvers: [ElementPlusResolver()],
+      resolvers: [ElementPlusResolver({importStyle: "sass"})],
     }),
   ],
   resolve: {
@@ -26,4 +26,11 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@/style/element'index.scss" as *`
+      }
+    }
+  }
 })
