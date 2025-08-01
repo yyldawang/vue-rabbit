@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "engines": {
-    "node": "^20.19.0 || >=22.12.0"
+    "node": "^20.19.0 || >=19.0.0"
   },
   "scripts": {
     "dev": "vite",
@@ -18,6 +18,7 @@
     "preinstall": "node check-pnpm.js"
   },
   "dependencies": {
+    "element-plus": "^2.10.4",
     "pinia": "^3.0.3",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
@@ -36,6 +37,8 @@
     "npm-run-all2": "^8.0.4",
     "oxlint": "~1.8.0",
     "typescript": "~5.8.0",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.8.0",
     "vite": "^7.0.6",
     "vite-plugin-vue-devtools": "^8.0.0",
     "vue-tsc": "^3.0.4"
