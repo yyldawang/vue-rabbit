@@ -78,8 +78,8 @@
         margin-left: 5px;
       }
       input {
-        width: 140px;
-        padding-left: 5px;
+        width: 120px;
+        padding-left: 4px;
         color: #666;
       }
     }

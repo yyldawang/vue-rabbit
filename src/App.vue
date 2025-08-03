@@ -4,9 +4,6 @@ import {  RouterView } from 'vue-router'
 
 <template>
   <RouterView />
-  <div class="test">
-    test text
-  </div>
 </template>
 
 <style scoped lang="scss">
