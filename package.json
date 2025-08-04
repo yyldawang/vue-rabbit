@@ -18,6 +18,7 @@
     "preinstall": "node check-pnpm.js"
   },
   "dependencies": {
+    "@vueuse/core": "^13.6.0",
     "axios": "^1.11.0",
     "element-plus": "^2.10.4",
     "pinia": "^3.0.3",
