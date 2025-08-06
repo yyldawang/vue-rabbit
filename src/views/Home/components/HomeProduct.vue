@@ -1,15 +1,14 @@
 <script setup lang="ts">
 import HomePanel from './HomePanel.vue'
 import GoodsItemCom from './GoodsItemCom.vue';
-import type { GoodsItem } from '@/apis/home'
+import type { goodsItemResponse, GoodsItem } from '@/apis/home'
 import {findGoodsAPI} from '@/apis/home'
 import { onMounted, ref } from "vue";
-import type { ApiResponse } from '@/utils/http'
 
 const goodsProduct = ref<GoodsItem[]>([])
 
 const findGoods = async () => {
-  const res: ApiResponse<GoodsItem[]> = await findGoodsAPI()
+  const res: goodsItemResponse = await findGoodsAPI()
   goodsProduct.value = res.result
 }
 

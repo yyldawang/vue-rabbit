@@ -29,18 +29,19 @@ axiosInstance.interceptors.response.use(
   }
 );
 
+
 // 创建简化响应的请求方法
 export const http = {
-  get: <T>(url: string, config?: InternalAxiosRequestConfig): Promise<ApiResponse<T>> => {
+  get: <T>(url: string, config?: any ): Promise<ApiResponse<T>> => {
     return axiosInstance.get<ApiResponse<T>>(url, config).then(response => response.data);
   },
-  post: <T>(url: string, data?: any, config?: InternalAxiosRequestConfig): Promise<ApiResponse<T>> => {
+  post: <T>(url: string, data?: any, config?: any): Promise<ApiResponse<T>> => {
     return axiosInstance.post<ApiResponse<T>>(url, data, config).then(response => response.data);
   },
-  put: <T>(url: string, data?: any, config?: InternalAxiosRequestConfig): Promise<ApiResponse<T>> => {
+  put: <T>(url: string, data?: any, config?: any): Promise<ApiResponse<T>> => {
     return axiosInstance.put<ApiResponse<T>>(url, data, config).then(response => response.data);
   },
-  delete: <T>(url: string, config?: InternalAxiosRequestConfig): Promise<ApiResponse<T>> => {
+  delete: <T>(url: string, config?: any): Promise<ApiResponse<T>> => {
     return axiosInstance.delete<ApiResponse<T>>(url, config).then(response => response.data);
   }
 };

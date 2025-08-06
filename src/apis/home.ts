@@ -8,8 +8,16 @@ export interface ImageItem {
   type: string;
 }
 
-export function getBannerAPI(): Promise<ApiResponse<ImageItem[]>> {
-  return http.get<ImageItem[]>( '/home/banner')
+export type ImageResponse = ApiResponse<ImageItem[]>
+
+// 定义参数类型
+interface BannerParams {
+  distributionSite?: string; // 可选属性，因为 params 可能不传
+}
+
+export function getBannerAPI(params: BannerParams = {}): Promise<ApiResponse<ImageItem[]>> {
+  const { distributionSite = '1' } = params
+  return http.get<ImageItem[]>( '/home/banner', { params: { distributionSite } })
 }
 
 
@@ -22,6 +30,8 @@ export interface NewsItem {
   price: string
 }
 
+export type NewsImemResponse = ApiResponse<NewsItem[]>
+
 export function findNewAPI(): Promise<ApiResponse<NewsItem[]>> {
   return http.get<NewsItem[]>('/home/new')
 }
@@ -32,6 +42,8 @@ export interface HotItem {
   picture: string,
   title: string
 }
+
+export type HotImemResponse = ApiResponse<HotItem[]>
 
 export function findHotAPI(): Promise<ApiResponse<HotItem[]>> {
   return http.get<HotItem[]>('/home/hot')
@@ -61,6 +73,8 @@ export interface GoodsItem {
   children: GoodChild[];
   goods: GoodParent[];
 }
+
+export type goodsItemResponse = ApiResponse<GoodsItem[]>
 
 export function findGoodsAPI(): Promise<ApiResponse<GoodsItem[]>> {
   return http.get<GoodsItem[]>('/home/goods')

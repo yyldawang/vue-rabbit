@@ -10,7 +10,6 @@ export const useCategoryStore = defineStore('category', () => {
     const res: ApiResponse<CategoryItem[]> = await getCategoryAPI()
     categoryList.value = res.result
   }
-
   return {
     categoryList,
     getCategory
