@@ -6,7 +6,6 @@ import type {ImageItem} from '@/apis/home'
 const bannerList = ref<ImageItem[]>([])
 const getBanner = async() => {
   const res = await getBannerAPI()
-  console.log(res.result)
   bannerList.value = res.result
 }
 
