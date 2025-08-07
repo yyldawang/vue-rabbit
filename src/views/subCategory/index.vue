@@ -6,6 +6,7 @@ import type { CategoryFilterResult, CategoryFilterResponse, reqData } from "@/ap
 import { getSubCategoryGoodsAPI } from "@/apis/category";
 import type { ApiPageResultItem, SalesGoodItem } from "@/apis/category";
 import GoodsItem from "@/views/Home/components/GoodsItemCom.vue";
+import Pagination from "@/components/Pagination/Pagination.vue";
 
 const route = useRoute();
 
@@ -60,6 +61,12 @@ const load = async () => {
     disabled.value = true;
   }
 };
+
+const pageChange = (page: number) => {
+  reqData.value.page = page
+  console.log(reqData.value)
+  getGooddResult()
+}
 </script>
 
 <template>
@@ -80,9 +87,13 @@ const load = async () => {
         <el-tab-pane label="最高人气" name="orderNum"></el-tab-pane>
         <el-tab-pane label="评论最多" name="evaluateNum"></el-tab-pane>
       </el-tabs>
-      <div class="body" v-infinite-scroll="load">
-        <!-- 商品列表-->
+      <!-- 商品列表-->
+      <!-- <div class="body" v-infinite-scroll="load">
         <GoodsItem v-for="good in goodsList" :key="good.id" :goods="good"></GoodsItem>
+      </div> -->
+      <div class="body">
+        <GoodsItem v-for="good in goodsList" :key="good.id" :goods="good"></GoodsItem>
+        <Pagination @page-change="pageChange" v-model:currentPage="reqData.page"></Pagination>
       </div>
     </div>
   </div>
